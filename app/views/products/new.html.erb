@@ -30,10 +30,15 @@
  
       var values = $(this).serialize();
  
-      var posting = $.post('/products', values);
+      var product = $.post('/products', values);
  
-      posting.done(function(data) {
-        // TODO: handle response
+      product.done(function(data) {
+        var prod = data;
+        $("#productName").text(prod["name"]);
+        $("#productDescription").text(prod["description"]);
+        $("#productPrice").text(prod["price"]);
+        $("#productInventory").text(prod["price"]);
+
       });
     });
   });
